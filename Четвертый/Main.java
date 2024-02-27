@@ -31,7 +31,7 @@ public class Main {
 
         TeacherService service = new TeacherService(teacherGroup);
         UserView<Teacher> view = new TeacherView();
-        view.sendOnConsole(service.getSortedStudentGroupByFIO());
+        view.sendOnConsole(service.getSortedTeacherGroupByFIO());
 
 
 
