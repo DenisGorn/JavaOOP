@@ -8,7 +8,7 @@ public class Student extends User{
         this.studentId = studentId;
     }
 
-    public int getStudentId() {
+    public Integer getStudentId() {
         return studentId;
     }
 

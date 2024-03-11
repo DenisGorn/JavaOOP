@@ -1,9 +1,6 @@
 package service;
 
-import model.Student;
-import model.Teacher;
-import model.TypeUser;
-import model.User;
+import model.*;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -61,5 +58,22 @@ public class DataService {
         }
         return teachers;
     }
+    public StudentGroup createStudentGroup(int teacherForLessonId, List<Integer> studentForLessonId) {
+        Teacher studentGroupTeacher = null;
+        List<Student> studentListGroup = new ArrayList<>();
 
+        //поиск учителя
+        for (User user : users) {
+            if (user instanceof Teacher && ((Teacher) user).getTeacherId() == teacherForLessonId)
+                studentGroupTeacher = (Teacher) user;
+        }
+        //поиск студенов
+        for (User user : users) {
+            for (Integer i : studentForLessonId) {
+                if (user instanceof Student && ((Student) user).getStudentId().equals(i))
+                    studentListGroup.add((Student) user);
+            }
+        }
+        return new StudentGroup(studentGroupTeacher, studentListGroup);
+    }
 }

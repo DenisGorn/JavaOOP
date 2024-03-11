@@ -3,40 +3,27 @@ package model;
 import java.util.List;
 
 public class StudentGroup{
-    private Integer groupId;
-    private Teacher teacher;
-    private List<Student> studentList;
+    private Teacher studentGroupTeacher;
+    private List<Student> studentGroupList;
 
-    public Integer getGroupId(int i) {
-        return groupId;
+    public StudentGroup(Teacher studentGroupTeacher, List<Student> studentGroupList) {
+        this.studentGroupTeacher = studentGroupTeacher;
+        this.studentGroupList = studentGroupList;
     }
 
-    public void setGroupId(Integer groupId) {
-        this.groupId = groupId;
+    public Teacher getStudentGroupTeacher(Teacher teacher) {
+        return this.studentGroupTeacher;
     }
 
-    public Teacher getTeacher(Teacher teacher) {
-        return this.teacher;
-    }
-
-    public void setTeacher(Teacher teacher) {
-        this.teacher = teacher;
-    }
-
-    public List<Student> getStudentList(List<Student> studentList) {
-        return this.studentList;
-    }
-
-    public void setStudentList(List<Student> studentList) {
-        this.studentList = studentList;
+    public List<Student> getStudentGroupList() {
+        return this.studentGroupList;
     }
 
     @Override
     public String toString() {
         return "StudentGroup{" +
-                "groupId=" + groupId +
-                ", teacher=" + teacher +
-                ", studentList=" + studentList +
-                '}';
+                "teacher= " + studentGroupTeacher + ",\n" +
+                "studentList = " +  studentGroupList +
+                "}";
     }
 }

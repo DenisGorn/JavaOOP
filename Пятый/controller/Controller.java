@@ -1,10 +1,10 @@
 package controller;
 
 import model.Student;
+import model.StudentGroup;
 import model.Teacher;
 import model.TypeUser;
 import service.DataService;
-import service.StudentGroupService;
 import view.StudentGroupView;
 import view.StudentView;
 import view.TeacherView;
@@ -20,7 +20,7 @@ public class Controller {
         dataService.create(firstName, secondName, lastName, TypeUser.STUDENT);
     }
     public void createTeacher(String firstName, String secondName, String lastName) {
-        dataService.create(firstName, secondName, lastName, TypeUser.STUDENT);
+        dataService.create(firstName, secondName, lastName, TypeUser.TEACHER);
     }
 
     public void getAllStudent() {
@@ -31,15 +31,9 @@ public class Controller {
     }
 
     StudentGroupView studentGroupView = new StudentGroupView();
-    StudentGroupService studentGroupService = new StudentGroupService();
-    public void createStudentGroup(int teacherId, List<Integer> studentIdList) {
-        Teacher teacher = (Teacher) dataService.getUserById(TypeUser.TEACHER, teacherId);
-        List<Student> studentList = new ArrayList<>();
-        for (int id : studentIdList)
-            studentList.add((Student)dataService.getUserById(TypeUser.STUDENT, id));
-        studentGroupService.createStudentGroup(teacher, studentList);
-    }
-    public void printStudentGroup() {
-        studentGroupView.printOnConsole(studentGroupService.getStudentGroup());
-    }
+//    StudentGroupService studentGroupService = new StudentGroupService();
+    public StudentGroup createStudentGroup(int teacherId, List<Integer> studentId) {
+            return dataService.createStudentGroup(teacherId, studentId);
+}
+
 }

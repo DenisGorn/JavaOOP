@@ -13,13 +13,13 @@ public class Main {
         controller.createStudent("3","3","3");
         controller.createStudent("4","4","4");
         controller.getAllStudent();
-        controller.createTeacher("Teacher1", "-", "Teacher1");
+        controller.createTeacher("Ivan", "Ivanovich", "Ivanov");
         controller.getAllTeacher();
 
         List<Integer> students = List.of(1,2,3,4,5);
 
         controller.createStudentGroup(1, students);
-        controller.printStudentGroup();
+        System.out.println(controller.createStudentGroup(1, students));
 
 
 
